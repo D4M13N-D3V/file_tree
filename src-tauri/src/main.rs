@@ -7,6 +7,7 @@ mod folder_crawler;
 
 fn main() {
     tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![load_folders])
         .plugin(tauri_plugin_global_shortcut::Builder::new().build())
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_os::init())
@@ -22,6 +23,8 @@ fn main() {
 
 #[tauri::command]
 fn load_folders(){
+    println!("TEST");
+
     let root = PathBuf::from("C:/Users/Damie/Desktop");
     let crawler = folder_crawler::FolderCrawler::new(root);
     for folder_data in crawler {

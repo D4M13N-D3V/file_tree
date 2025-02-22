@@ -1,7 +1,6 @@
 import React from 'react';
 import Tree from 'components/Tree';
 import rawData from '../data.json';
-
 interface TreeNodeData {
   name: string;
   type: string;
@@ -24,6 +23,7 @@ const addFilesToData = (data: any): TreeNodeData[] => {
 };
 
 const data = addFilesToData(rawData);
+
 
 export default function Index() {
   return (

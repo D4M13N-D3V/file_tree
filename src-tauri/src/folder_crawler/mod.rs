@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use serde::Serialize;
 
 #[derive(Serialize, Debug)]
-struct FolderData {
+pub struct FolderData {
     name: String,
     path: String,
     #[serde(rename = "type")]
