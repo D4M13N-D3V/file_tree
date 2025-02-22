@@ -6,18 +6,18 @@
 <p>
 
 
-[![Stars](https://img.shields.io/github/stars/leon3s/nextauri?style=social)](https://github.com/leon3s/nextauri)
-[![Rust](https://img.shields.io/badge/built_with-Rust-dca282.svg)](https://github.com/leon3s/nextauri)
-[![Typescript](https://img.shields.io/badge/built_with-Typescript-3178C6.svg)](https://github.com/leon3s/nextauri)
-[![Discord](https://img.shields.io/discord/1011267493114949693?label=chat&logo=discord)](https://discord.gg/WV4Aac8uZg)
+[![Stars](https://img.shields.io/github/stars/d4m13n-d3v/file_tree_rust?style=social)](https://github.com/d4m13n-d3v/file_tree_rust)
+[![Rust](https://img.shields.io/badge/built_with-Rust-dca282.svg)](https://github.com/d4m13n-d3v/file_tree_rust)
+[![Typescript](https://img.shields.io/badge/built_with-Typescript-3178C6.svg)](https://github.com/d4m13n-d3v/file_tree_rust)
+[![Discord](https://img.shields.io/discord/1195961063183765575?label=chat&logo=discord)](https://discord.gg/8dHnaarghJ)
 
 
 </p>
 
 <p>
 
-[![Eslint & Clippy](https://github.com/leon3s/nextauri/actions/workflows/eslint_clippy.yml/badge.svg)](https://github.com/leon3s/nextauri/actions/workflows/eslint_clippy.yml)
-[![Build](https://github.com/leon3s/nextauri/actions/workflows/build.yml/badge.svg)](https://github.com/leon3s/nextauri/actions/workflows/build.yml)
+[![Eslint & Clippy](https://github.com/d4m13n-d3v/file_tree_rust/actions/workflows/eslint_clippy.yml/badge.svg)](https://github.com/d4m13n-d3v/file_tree_rust/actions/workflows/eslint_clippy.yml)
+[![Build](https://github.com/d4m13n-d3v/file_tree_rust/actions/workflows/build.yml/badge.svg)](https://github.com/d4m13n-d3v/file_tree_rust/actions/workflows/build.yml)
 
 <p>
 
@@ -79,7 +79,7 @@ Be sure you have [NodeJS](https://nodejs.org/en/) and [Rust](https://www.rust-la
 
 2.  Clone or fork this repository
     ```sh
-    git clone https://github.com/leon3s/nextauri
+    git clone https://github.com/d4m13n-d3v/file_tree_rust
     cd nextauri
     ```
 3.  Install node dependencies
@@ -116,7 +116,7 @@ You can modify the `port` by updating `src-tauri/tauri.conf.json`. <br />
 
 To test your application we recommand you to use [Cypress](https://www.cypress.io) using Tauri [mocking technique](https://tauri.app/v1/guides/testing/mocking).
 
-If you want me to add `Cypress` as part of the template react to this [discussion](https://github.com/leon3s/nextauri/discussions/19).
+If you want me to add `Cypress` as part of the template react to this [discussion](https://github.com/d4m13n-d3v/file_tree_rust/discussions/19).
 
 You may also want to take a look to pre-alpha [WebDriver Testing](https://tauri.app/v1/guides/testing/webdriver/introduction) from Tauri.
 
