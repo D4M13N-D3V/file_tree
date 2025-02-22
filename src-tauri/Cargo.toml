@@ -1,7 +1,7 @@
 [package]
-name = "nextauri"
+name = "file-tree"
 version = "0.0.0"
-description = "A Tauri App"
+description = "A application for determining what is using your storage."
 authors = ["you"]
 license = ""
 repository = ""

@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Root Folder",
+    "type": "folder",
+    "path": "/",
+    "subfolders": 3,
+    "size": 1000000,
+    "children": [
+      {
+        "name": "Subfolder 1",
+        "type": "folder",
+        "path": "/Subfolder 1",
+        "subfolders": 2,
+        "size": 500000,
+        "children": [
+          {
+            "name": "Subfolder 1.1",
+            "type": "folder",
+            "path": "/Subfolder 1/Subfolder 1.1",
+            "subfolders": 0,
+            "size": 100000,
+            "children": []
+          },
+          {
+            "name": "Subfolder 1.2",
+            "type": "folder",
+            "path": "/Subfolder 1/Subfolder 1.2",
+            "subfolders": 0,
+            "size": 200000,
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Subfolder 2",
+        "type": "folder",
+        "path": "/Subfolder 2",
+        "subfolders": 0,
+        "size": 150000,
+        "children": []
+      },
+      {
+        "name": "Subfolder 3",
+        "type": "folder",
+        "path": "/Subfolder 3",
+        "subfolders": 1,
+        "size": 200000,
+        "children": [
+          {
+            "name": "Subfolder 3.1",
+            "type": "folder",
+            "path": "/Subfolder 3/Subfolder 3.1",
+            "subfolders": 0,
+            "size": 50000,
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]
