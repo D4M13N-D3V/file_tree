@@ -56,10 +56,9 @@ Below is a roadmap of future features planned for File Tree to increase its func
     - Intuitive interface to preview, compare, and safely delete duplicates.
     - Space-saving recommendations.
 
-#### **3. File Type Statistics**
-- **Auto-Classification of Files:**
-    - Real-time calculation of percentages for each file type category.
-    - Expanded file classification metrics for better insights.
+#### **3. Automatic File Moving**
+- **Automatic File Moving:**
+    - Can automatically move files based on the parent folders and file type.
 
 #### **4. Advanced File Search**
 - **Search by Attributes**:
