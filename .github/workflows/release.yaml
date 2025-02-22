@@ -2,6 +2,10 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number'
+        required: true
 
 jobs:
   create_release:
@@ -10,35 +14,14 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v3
 
-      - name: CargoVersionBump
-        # You may pin to the exact commit or the version.
-        # uses: bp3d-actions/cargo-version@c67ad4bfe18e7bd64ef90277fa4f86ae3fcaec3e
-        uses: bp3d-actions/cargo-version@0.0.2
-        with:
-          # get to return current crate name and version, set to check and apply the new provided version if it is greater than the current one
-          mode: get
-          # name of the release branch
-          release-branch: master
-          # set to true if the repository has multiple Cargo crates, in which case multiple /version can be used, each with the directory name as second argument
-          multi: false
-          # the GitHub Actions token
-          token: ${{ secrets.DAMIEN_TOKEN }}
-          # working directory of Cargo.toml
-          cwd: ./src-tauri/
-          
-      - uses: colt-1/crate-version@2.0.0
-        with:
-          # The relative path of toml file
-          file: ./src-tauri/Cargo.toml
-          
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.DAMIEN_TOKEN }}
         with:
-          tag_name: ${{ steps.crate-version.outputs.version }}
-          release_name: Release ${{ steps.crate-version.outputs.version }}
+          tag_name: ${{ github.event.inputs.version }}
+          release_name: Release ${{ github.event.inputs.version }}
           draft: false
           prerelease: false
 
@@ -102,11 +85,12 @@ jobs:
       - name: Install node dependencies
         run: npm install
         
-          
-      - uses: colt-1/crate-version@2.0.0
+      - name: Set crate version
+        # You may pin to the exact commit or the version.
+        # uses: thomaseizinger/set-crate-version@0941739e872e465c18af1148eccf85b249b82016
+        uses: thomaseizinger/set-crate-version@1.0.0
         with:
-          # The relative path of toml file
-          file: ./src-tauri/Cargo.toml
+          version: ${{ github.event.inputs.version}}
           
       - name: Build application
         run: npm run tauri build
@@ -122,5 +106,5 @@ jobs:
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url }}
           asset_path: ./release_${{ matrix.os }}.zip
-          asset_name: file_tree_${{ steps.crate-version.outputs.version }}_${{ matrix.os }}.zip
+          asset_name: file_tree_${{ github.event.inputs.version }}_${{ matrix.os }}.zip
           asset_content_type: application/zip
