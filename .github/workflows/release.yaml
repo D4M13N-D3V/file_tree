@@ -45,6 +45,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
+      - name: Install sharp dependencies for macOS
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install vips
 
       - name: Install Rust with Clippy
         uses: dtolnay/rust-toolchain@stable
