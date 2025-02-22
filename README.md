@@ -21,6 +21,4 @@
 
 <p>
 
-<img src="https://download.next-hat.com/ressources/images/nextauri.png" />
-
 </div>
