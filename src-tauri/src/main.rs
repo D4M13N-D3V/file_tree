@@ -2,6 +2,8 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
+use std::path::PathBuf;
+mod folder_crawler;
 
 fn main() {
     tauri::Builder::default()
@@ -16,4 +18,13 @@ fn main() {
         .plugin(tauri_plugin_dialog::init())
         .run(tauri::generate_context!())
         .expect("error while running tauri application!");
+}
+
+#[tauri::command]
+fn load_folders(){
+    let root = PathBuf::from("C:/Users/Damie/Desktop");
+    let crawler = folder_crawler::FolderCrawler::new(root);
+    for folder_data in crawler {
+        println!("{:?}", folder_data);
+    }
 }
