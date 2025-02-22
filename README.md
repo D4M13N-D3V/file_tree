@@ -1,6 +1,6 @@
 <div align="center">
   <h1>File Tree</h1>
-  <h3>🌳 A tool for determining what is using your storage space, and creating solutions to slim it down. 🌳</h3>
+  <h3>🌳 A tool for determining what is using your storage space, and recommending solutions to slim it down. 🌳</h3>
 
 
 <p>
