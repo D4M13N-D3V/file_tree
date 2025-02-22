@@ -92,13 +92,14 @@ https://github.com/D4M13N-D3V/file_tree/releases/latest
 
 ## 📅 Planned Releases
 
-| Version | Planned Features                                                                   | Target Date                 |
-|---------|------------------------------------------------------------------------------------|-----------------------------|
-| 1.0.0   | **Storage Usage**: View and discovery storage usage by folder on your device.      | Second Half of Febuary 2025 |
-| 1.1.0   | **Duplicate Detection**: Identify and manage duplicate files                       | First Half of March 2025    |
-| 1.2.0   | **File Search**: Advanced global search functionality                              | Second Half of March 2025   |
-| 1.3.0   | **Visualization Improvements**: Charts for file types breakdown + percentage stats | First Half of April 2025    |
-| 2.0.0   | **Recommendations**: Space-saving ideas based on storage patterns                  | Second Half of April 2025   |
+| Version | Planned Features                                                                      | Target Date                 |
+|---------|---------------------------------------------------------------------------------------|-----------------------------|
+| 1.1.0   | **Storage Usage**: View and discovery storage usage by folder on your device.         | Second Half of Febuary 2025 |
+| 1.2.0   | **Duplicate Detection**: Identify and manage and auto delete duplicate files          | First Half of March 2025    |
+| 2.3.0   | **File Search**: Instant results global device search functionality                   | Second Half of March 2025   |
+| 2.4.0   | **Automatic File Moving**: Move files based on type if not under given parent folder. | First Half of April 2025    |
+| 2.5.0   | **Visualization Improvements**: Charts for file types breakdown + percentage stats    | First Half of April 2025    |
+| 3.4.0   | **Recommendations**: Space-saving ideas based on known storage patterns               | Second Half of April 2025   |
 
 ---
 
@@ -120,7 +121,3 @@ We welcome contributions to help improve File Tree! Please refer to our [CONTRIB
 File Tree does not delete, modify, or manage files without explicit user action. Use at your own discretion for analysis and optimization.
 
 ---
-
-<div align="center">
-  <h3>🌳 Happy organizing! 🌳</h3>
-</div>
