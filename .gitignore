@@ -1,2 +1,9 @@
 node_modules
 dist
+/.idea
+src-tauri/Cargo.toml
+src-tauri/gen/schemas/desktop-schema.json
+src-tauri/gen/schemas/windows-schema.json
+yarn.lock
+src-tauri/gen/schemas/desktop-schema.json
+src-tauri/Cargo.toml
