@@ -52,8 +52,8 @@
         "decorations": true,
         "fullscreen": false,
         "height": 600,
-        "resizable": true,
-        "title": "nextauri",
+        "resizable": false,
+        "title": "File Tree by d4m13n.dev",
         "width": 800,
         "useHttpsScheme": true
       }
