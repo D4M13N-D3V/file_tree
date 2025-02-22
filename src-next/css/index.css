@@ -75,16 +75,16 @@ body {
 
 .progressBar {
   height: 100%;
-  background-color: #1eff00;
+  background-color: #aef16b;
   border-radius: 5px;
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #F0E68C;
 }
 
 .red {
-  background-color: red;
+  background-color: #CD5C5C;
 }
 
 .children {
