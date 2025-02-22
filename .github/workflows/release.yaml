@@ -1,0 +1,107 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number'
+        required: true
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.DAMIEN_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          release_name: Release ${{ github.event.inputs.version }}
+          draft: false
+          prerelease: false
+
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+  build:
+    needs: create_release
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+
+      # Cache Rust
+      - uses: actions/cache@v3
+        with:
+          path: ./src-tauri/target
+          key: ${{matrix.os}}-${{ hashFiles('./src-tauri/Cargo.lock') }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cargo
+          key: ${{matrix.os}}-${{ hashFiles('./src-tauri/Cargo.lock') }}
+
+      # Cache Node
+      - uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{matrix.os}}-${{ hashFiles('./package-lock.json') }}
+
+      # Cache Next.js
+      - uses: actions/cache@v3
+        with:
+          path: ./src-next/.next
+          key: ${{matrix.os}}
+
+      - name: Install Node.js v20 LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install Rust with Clippy
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Install Tauri dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt install --reinstall ca-certificates
+          sudo update-ca-certificates -f
+          sudo apt-get install javascriptcoregtk-4.1 libsoup-3.0 webkit2gtk-4.1 libayatana-appindicator3-dev librsvg2-dev -y
+
+      - name: Install node dependencies
+        run: npm install
+        
+      - name: Install zip utility on Windows
+        if: matrix.os == 'windows-latest'
+        run: choco install zip -y
+          
+      - name: Build application
+        run: npm run tauri build
+
+      - name: Zip release bundle
+        run: |
+          zip -r release_${{ matrix.os }}.zip ./src-tauri/target/release/bundle/
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.DAMIEN_TOKEN }}
+        with:
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
+          asset_path: ./release_${{ matrix.os }}.zip
+          asset_name: file_tree_${{ github.event.inputs.version }}_${{ matrix.os }}.zip
+          asset_content_type: application/zip
