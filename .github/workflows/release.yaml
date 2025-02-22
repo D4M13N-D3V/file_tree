@@ -14,13 +14,6 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v3
 
-      - name: Create Git Tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.DAMIEN_TOKEN }}
-        run: |
-          git tag ${{ github.event.inputs.version }}
-          git push origin ${{ github.event.inputs.version }}
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
