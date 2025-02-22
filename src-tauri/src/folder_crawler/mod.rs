@@ -22,7 +22,7 @@ impl FolderCrawler {
     }
 }
 
-pub impl Iterator for FolderCrawler {
+impl Iterator for FolderCrawler {
     type Item = FolderData;
 
     fn next(&mut self) -> Option<Self::Item> {
