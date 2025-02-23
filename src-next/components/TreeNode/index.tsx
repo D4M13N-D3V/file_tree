@@ -38,6 +38,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ node, rootSize }) => {
 
   return (
     <div className="treeNode">
+
       <div className="nodeHeader" onClick={toggleExpand}>
             <span className="nodeName">{node.name}</span>
               <span className="subfolderBadge">Subfolders: {node.subfolderCount}</span>
