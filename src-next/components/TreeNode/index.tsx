@@ -40,11 +40,11 @@ const TreeNode: React.FC<TreeNodeProps> = ({ node, rootSize }) => {
     <div className="treeNode">
 
       <div className="nodeHeader" onClick={toggleExpand}>
-            <span className="nodeName">{node.name}</span>
-              <span className="subfolderBadge">Subfolders: {node.subfolderCount}</span>
-              <span className="fileBadge">Files: {node.fileCount}</span>
-              <span className="fileBadge">Size: {beautifyBytes(node.totalSize)}</span>
-              </div>
+                  <span className="nodePath">{node.path}</span>
+                    <span className="subfolderBadge">Subfolders: {node.subfolderCount}</span>
+                    <span className="fileBadge">Files: {node.fileCount}</span>
+                    <span className="fileBadge">Size: {beautifyBytes(node.totalSize)}</span>
+                    </div>
               <div className="progressBarContainer">
                 <div
                   className={`progressBar ${percentage > 70 ? 'red' : percentage > 40 ? 'yellow' : ''}`}

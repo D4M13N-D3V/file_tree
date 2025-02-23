@@ -23,8 +23,8 @@ fn main() {
 }
 
 #[tauri::command]
-fn load_folders(app: AppHandle){
-    let root_path = PathBuf::from("C:\\Users\\Damie\\Data443\\dim_argocd");
+fn load_folders(app: AppHandle, folder_path: String){
+    let root_path = PathBuf::from(folder_path);
     let folder_data = folder_crawler::load_folder(root_path);
     app.emit("folders-loaded", folder_data).unwrap();
 }

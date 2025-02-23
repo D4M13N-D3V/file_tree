@@ -41,7 +41,7 @@ body {
   padding: 5px;
   background-color: #333;
   color: #fff;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .nodeName {
@@ -90,4 +90,13 @@ body {
 
 .children {
   margin-left: 10px;
+}
+
+.nodePath {
+  margin-right: 5px;
+  color: gray;
+  font-size: 0.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
