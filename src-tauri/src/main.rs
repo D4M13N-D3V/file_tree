@@ -4,7 +4,7 @@
 )]
 use std::path::PathBuf;
 mod folder_crawler;
-use tauri::{AppHandle, Emitter, EventTarget};
+use tauri::{AppHandle, Emitter};
 
 fn main() {
     tauri::Builder::default()

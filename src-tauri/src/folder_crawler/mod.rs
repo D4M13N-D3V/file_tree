@@ -35,6 +35,10 @@ pub fn load_folder(path : PathBuf) -> FolderData {
         }
     }
 
+    for child in &children {
+        total_size += child.total_size;
+    }
+
     FolderData {
         name: path.file_name().unwrap().to_str().unwrap().to_string(),
         path: path.to_str().unwrap().to_string(),
