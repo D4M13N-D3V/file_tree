@@ -4,6 +4,7 @@
 )]
 use std::path::PathBuf;
 mod folder_crawler;
+use tauri::{AppHandle, Emitter, EventTarget};
 
 fn main() {
     tauri::Builder::default()
@@ -22,12 +23,8 @@ fn main() {
 }
 
 #[tauri::command]
-fn load_folders(){
-    println!("TEST");
-
-    let root = PathBuf::from("C:/Users/Damie/Desktop");
-    let crawler = folder_crawler::FolderCrawler::new(root);
-    for folder_data in crawler {
-        println!("{:?}", folder_data);
-    }
+fn load_folders(app: AppHandle){
+    let root_path = PathBuf::from("C:\\Users\\Damie\\Data443\\dim_argocd");
+    let folder_data = folder_crawler::load_folder(root_path);
+    app.emit("folders-loaded", folder_data).unwrap();
 }
